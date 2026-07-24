@@ -22,6 +22,7 @@ setTimeout(function () {
 
 }
 function saveGoal() {
+    alert("Goal button works!");
 
     let goal = document.getElementById("goalInput").value;
 
