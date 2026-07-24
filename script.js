@@ -57,3 +57,4 @@ window.onload = function () {
         document.getElementById("goalDisplay").innerText =
             savedGoal + " kg";
     }
+};
