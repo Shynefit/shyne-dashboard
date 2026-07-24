@@ -21,7 +21,27 @@ setTimeout(function () {
 }, 2000);
 
 }
+function saveGoal() {
 
+    let goal = document.getElementById("goalInput").value;
+
+    document.getElementById("goalDisplay").innerText = goal + " kg";
+
+    localStorage.setItem("goal", goal);
+
+    document.getElementById("goalInput").value = "";
+
+    let toast = document.getElementById("toast");
+
+    toast.innerText = "🎯 Goal saved!";
+
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+
+}
 window.onload = function () {
 
     let savedWeight = localStorage.getItem("weight");
@@ -31,4 +51,9 @@ window.onload = function () {
             savedWeight + " kg";
     }
 
-}
+    let savedGoal = localStorage.getItem("goal");
+
+    if (savedGoal) {
+        document.getElementById("goalDisplay").innerText =
+            savedGoal + " kg";
+    }
