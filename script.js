@@ -3,13 +3,15 @@ function sayHello() {
 }
 
 function saveWeight() {
+    alert("SAVE CLICKED!");
 
     let weight = document.getElementById("weightInput").value;
+
+    alert(weight);
 
     document.getElementById("weightDisplay").innerText = weight + " kg";
 
     localStorage.setItem("weight", weight);
-
 }
 
 window.onload = function () {
