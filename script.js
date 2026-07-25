@@ -81,6 +81,8 @@ window.onload = function () {
         document.getElementById("streakDisplay").innerText =
             savedStreak + " Days";
     }
+
+}; 
 function resetStreak() {
     localStorage.setItem("streak", 0);
 
@@ -95,4 +97,3 @@ function resetStreak() {
         toast.classList.remove("show");
     }, 2000);
 }
-};
