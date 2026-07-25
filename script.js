@@ -20,7 +20,6 @@ setTimeout(function () {
     toast.classList.remove("show");
 }, 2000);
 
-}
 function saveGoal() {
 
     let goal = document.getElementById("goalInput").value;
@@ -64,7 +63,6 @@ function addWorkout() {
         toast.classList.remove("show");
     }, 2000);
 
-}
 }
 window.onload = function () {
 
