@@ -40,21 +40,50 @@ function saveGoal() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
+function addWorkout() {
 
+    let streak = localStorage.getItem("streak");
+
+    if (!streak) {
+        streak = 0;
+    }
+
+    streak = parseInt(streak) + 1;
+
+    localStorage.setItem("streak", streak);
+
+    document.getElementById("streakDisplay").innerText =
+        streak + " Days";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔥 Workout saved!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+
+}
+    
 }
 window.onload = function () {
 
     let savedWeight = localStorage.getItem("weight");
-
     if (savedWeight) {
         document.getElementById("weightDisplay").innerText =
             savedWeight + " kg";
     }
 
     let savedGoal = localStorage.getItem("goal");
-
     if (savedGoal) {
         document.getElementById("goalDisplay").innerText =
             savedGoal + " kg";
     }
+
+    let savedStreak = localStorage.getItem("streak");
+    if (savedStreak) {
+        document.getElementById("streakDisplay").innerText =
+            savedStreak + " Days";
+    }
+
 };
