@@ -108,7 +108,6 @@ function addSavings() {
 
     if (!savings) {
         savings = 0;
-    }
 }
     let add = document.getElementById("savingsInput").value;
 
