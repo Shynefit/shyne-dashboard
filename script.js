@@ -81,5 +81,18 @@ window.onload = function () {
         document.getElementById("streakDisplay").innerText =
             savedStreak + " Days";
     }
+function resetStreak() {
+    localStorage.setItem("streak", 0);
 
+    document.getElementById("streakDisplay").innerText =
+        "0 Days";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔄 Streak reset!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
 };
