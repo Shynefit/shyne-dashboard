@@ -41,6 +41,7 @@ function saveGoal() {
     }, 2000);
 }
 function addWorkout() {
+    alert("addWorkout is running!");
 
     let streak = localStorage.getItem("streak");
 
@@ -49,7 +50,6 @@ function addWorkout() {
     }
 
     streak = parseInt(streak) + 1;
-
     localStorage.setItem("streak", streak);
 
     document.getElementById("streakDisplay").innerText =
@@ -62,7 +62,6 @@ function addWorkout() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
-
 }
 window.onload = function () {
 
