@@ -40,6 +40,7 @@ function saveGoal() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
+}
 function addWorkout() {
 
     let streak = localStorage.getItem("streak");
