@@ -81,7 +81,12 @@ window.onload = function () {
         document.getElementById("streakDisplay").innerText =
             savedStreak + " Days";
     }
+let savedSavings = localStorage.getItem("savings");
 
+if (savedSavings) {
+    document.getElementById("savingsDisplay").innerText =
+        "₱" + savedSavings + " / ₱10,000";
+}
 }; 
 function resetStreak() {
     localStorage.setItem("streak", 0);
@@ -96,4 +101,32 @@ function resetStreak() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
+}
+function addSavings() {
+
+    let savings = localStorage.getItem("savings");
+
+    if (!savings) {
+        savings = 0;
+    }
+
+    let add = document.getElementById("savingsInput").value;
+
+    savings = parseInt(savings) + parseInt(add);
+
+    localStorage.setItem("savings", savings);
+
+    document.getElementById("savingsDisplay").innerText =
+        "₱" + savings + " / ₱10,000";
+
+    document.getElementById("savingsInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "💰 Savings updated!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+
 }
