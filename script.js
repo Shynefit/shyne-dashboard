@@ -19,7 +19,7 @@ toast.classList.add("show");
 setTimeout(function () {
     toast.classList.remove("show");
 }, 2000);
-
+}
 function saveGoal() {
 
     let goal = document.getElementById("goalInput").value;
