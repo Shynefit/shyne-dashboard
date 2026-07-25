@@ -106,9 +106,7 @@ function addSavings() {
 
     let add = document.getElementById("savingsInput").value;
 
-    if (add === "") {
-        alert("Please enter an amount.");
-        return;
+    alert("Amount: " + add);
     }
 
     let savings = localStorage.getItem("savings");
