@@ -103,12 +103,14 @@ function resetStreak() {
     }, 2000);
 }
 function addSavings() {
-
+    alert("Savings function is running!");
     let savings = localStorage.getItem("savings");
 
     if (!savings) {
         savings = 0;
     }
+
+}
 
     let add = document.getElementById("savingsInput").value;
 
