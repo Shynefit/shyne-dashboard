@@ -64,7 +64,6 @@ function addWorkout() {
     }, 2000);
 
 }
-    
 }
 window.onload = function () {
 
