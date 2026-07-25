@@ -2,66 +2,131 @@ function sayHello() {
     alert("Hello Bes! 💙 Welcome to Shyne OS!");
 }
 
-// =======================
-// WEIGHT
-// =======================
 function saveWeight() {
     let weight = document.getElementById("weightInput").value;
-
-    if (weight === "") return;
 
     document.getElementById("weightDisplay").innerText = weight + " kg";
     localStorage.setItem("weight", weight);
 
     document.getElementById("weightInput").value = "";
 
-    showToast("✅ Weight saved!");
+    let toast = document.getElementById("toast");
+    toast.innerText = "✅ Weight saved!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
 }
 
-// =======================
-// GOAL
-// =======================
 function saveGoal() {
     let goal = document.getElementById("goalInput").value;
-
-    if (goal === "") return;
 
     document.getElementById("goalDisplay").innerText = goal + " kg";
     localStorage.setItem("goal", goal);
 
     document.getElementById("goalInput").value = "";
 
-    showToast("🎯 Goal saved!");
+    let toast = document.getElementById("toast");
+    toast.innerText = "🎯 Goal saved!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
 }
 
-// =======================
-// WORKOUT STREAK
-// =======================
 function addWorkout() {
-    let streak = parseInt(localStorage.getItem("streak")) || 0;
+    let streak = localStorage.getItem("streak");
 
-    streak++;
+    if (!streak) {
+        streak = 0;
+    }
+
+    streak = parseInt(streak) + 1;
 
     localStorage.setItem("streak", streak);
 
-    document.getElementById("streakDisplay").innerText = streak + " Days";
+    document.getElementById("streakDisplay").innerText =
+        streak + " Days";
 
-    showToast("🔥 Workout saved!");
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔥 Workout saved!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
 }
 
+window.onload = function () {
+
+    let savedWeight = localStorage.getItem("weight");
+
+    if (savedWeight) {
+        document.getElementById("weightDisplay").innerText =
+            savedWeight + " kg";
+    }
+
+    let savedGoal = localStorage.getItem("goal");
+
+    if (savedGoal) {
+        document.getElementById("goalDisplay").innerText =
+            savedGoal + " kg";
+    }
+
+    let savedStreak = localStorage.getItem("streak");
+
+    if (savedStreak) {
+        document.getElementById("streakDisplay").innerText =
+            savedStreak + " Days";
+    }
+let savedSavings = localStorage.getItem("savings");
+
+if (savedSavings) {
+    document.getElementById("savingsDisplay").innerText =
+        "₱" + savedSavings + " / ₱10,000";
+}
+}; 
 function resetStreak() {
     localStorage.setItem("streak", 0);
 
-    document.getElementById("streakDisplay").innerText = "0 Days";
+    document.getElementById("streakDisplay").innerText =
+        "0 Days";
 
-    showToast("🔄 Streak reset!");
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔄 Streak reset!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
 }
-
-// =======================
-// SAVINGS
-// =======================
 function addSavings() {
+    alert("Savings function is running!");
 
-    let amount = parseInt(document.getElementById("savingsInput").value);
+    let savings = localStorage.getItem("savings");
 
-    if (
+    if (!savings) {
+        savings = 0;
+    }
+
+    let add = document.getElementById("savingsInput").value;
+
+    savings = parseInt(savings) + parseInt(add);
+
+    localStorage.setItem("savings", savings);
+
+    document.getElementById("savingsDisplay").innerText =
+        "₱" + savings + " / ₱10,000";
+
+    document.getElementById("savingsInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "💰 Savings updated!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
