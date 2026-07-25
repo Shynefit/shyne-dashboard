@@ -104,11 +104,13 @@ function resetStreak() {
 }
 function addSavings() {
     alert("Savings function is running!");
+
     let savings = localStorage.getItem("savings");
 
     if (!savings) {
         savings = 0;
-}
+    }
+
     let add = document.getElementById("savingsInput").value;
 
     savings = parseInt(savings) + parseInt(add);
@@ -127,5 +129,4 @@ function addSavings() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
-
 }
