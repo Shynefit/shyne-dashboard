@@ -103,15 +103,19 @@ function resetStreak() {
     }, 2000);
 }
 function addSavings() {
-    alert("Savings function is running!");
+
+    let add = document.getElementById("savingsInput").value;
+
+    if (add === "") {
+        alert("Please enter an amount.");
+        return;
+    }
 
     let savings = localStorage.getItem("savings");
 
     if (!savings) {
         savings = 0;
     }
-
-    let add = document.getElementById("savingsInput").value;
 
     savings = parseInt(savings) + parseInt(add);
 
