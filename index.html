@@ -133,8 +133,27 @@
 </div>
 
 <div class="card">
-<h3>💧 Water</h3>
-<p>0 / 3.5 L</p>
+    <h3>💧 Water</h3>
+
+    <p id="waterDisplay">0 / 3.5 L</p>
+
+    <input
+        id="waterInput"
+        type="number"
+        step="0.1"
+        placeholder="Enter liters">
+
+    <br><br>
+
+    <button onclick="addWater()">
+        Add Water
+    </button>
+
+    <br><br>
+
+    <button onclick="resetWater()">
+        🔄 Reset Water
+    </button>
 </div>
 
 </div>
