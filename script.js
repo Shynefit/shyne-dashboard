@@ -108,9 +108,7 @@ function addSavings() {
     let savings = localStorage.getItem("savings") || 0;
 
     savings = Number(savings) + Number(add);
-
-    alert("New Total: " + savings);
-
+    localStorage. setItem("savings", savings);
     document.getElementById("savingsDisplay").innerText =
         "₱" + savings + " / ₱10,000";
 
