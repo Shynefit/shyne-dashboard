@@ -145,3 +145,43 @@ function resetSavings() {
         toast.classList.remove("show");
     }, 2000);
 }
+function addProtein() {
+
+    let add = document.getElementById("proteinInput").value;
+    let protein = localStorage.getItem("protein") || 0;
+
+    protein = Number(protein) + Number(add);
+
+    localStorage.setItem("protein", protein);
+
+    document.getElementById("proteinDisplay").innerText =
+        protein + " / 140 g";
+
+    document.getElementById("proteinInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "🥩 Protein updated!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
+
+function resetProtein() {
+
+    localStorage.setItem("protein", 0);
+
+    document.getElementById("proteinDisplay").innerText =
+        "0 / 140 g";
+
+    document.getElementById("proteinInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔄 Protein reset!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
