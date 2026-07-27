@@ -93,7 +93,21 @@ if (savedProtein) {
     document.getElementById("proteinDisplay").innerText =
         savedProtein + " / 140 g";
 }  
-}; 
+    let savedProtein = localStorage.getItem("protein");
+
+if (savedProtein) {
+    document.getElementById("proteinDisplay").innerText =
+        savedProtein + " / 140 g";
+}
+
+let savedWater = localStorage.getItem("water");
+
+if (savedWater) {
+    document.getElementById("waterDisplay").innerText =
+        savedWater + " / 3.5 L";
+}
+
+};
 function resetStreak() {
     localStorage.setItem("streak", 0);
 
@@ -179,6 +193,46 @@ function resetProtein() {
 
     let toast = document.getElementById("toast");
     toast.innerText = "🔄 Protein reset!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
+function addWater() {
+
+    let add = document.getElementById("waterInput").value;
+    let water = localStorage.getItem("water") || 0;
+
+    water = Number(water) + Number(add);
+
+    localStorage.setItem("water", water);
+
+    document.getElementById("waterDisplay").innerText =
+        water + " / 3.5 L";
+
+    document.getElementById("waterInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "💧 Water updated!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
+
+function resetWater() {
+
+    localStorage.setItem("water", 0);
+
+    document.getElementById("waterDisplay").innerText =
+        "0 / 3.5 L";
+
+    document.getElementById("waterInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "🔄 Water reset!";
     toast.classList.add("show");
 
     setTimeout(function () {
