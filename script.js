@@ -80,12 +80,6 @@ window.onload = function () {
     if (savedStreak) {
         document.getElementById("streakDisplay").innerText =
             savedStreak + " Days";
-    }
-let savedSavings = localStorage.getItem("savings");
-
-if (savedSavings) {
-    document.getElementById("savingsDisplay").innerText =
-        "₱" + savedSavings + " / ₱10,000";
 }
   let savedProtein = localStorage.getItem("protein");
 
