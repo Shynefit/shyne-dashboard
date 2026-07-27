@@ -87,6 +87,12 @@ if (savedSavings) {
     document.getElementById("savingsDisplay").innerText =
         "₱" + savedSavings + " / ₱10,000";
 }
+  let savedProtein = localStorage.getItem("protein");
+
+if (savedProtein) {
+    document.getElementById("proteinDisplay").innerText =
+        savedProtein + " / 140 g";
+}  
 }; 
 function resetStreak() {
     localStorage.setItem("streak", 0);
