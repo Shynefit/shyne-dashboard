@@ -62,44 +62,40 @@ function addWorkout() {
 window.onload = function () {
 
     let savedWeight = localStorage.getItem("weight");
-
     if (savedWeight) {
         document.getElementById("weightDisplay").innerText =
             savedWeight + " kg";
     }
 
     let savedGoal = localStorage.getItem("goal");
-
     if (savedGoal) {
         document.getElementById("goalDisplay").innerText =
             savedGoal + " kg";
     }
 
     let savedStreak = localStorage.getItem("streak");
-
     if (savedStreak) {
         document.getElementById("streakDisplay").innerText =
             savedStreak + " Days";
-}
-  let savedProtein = localStorage.getItem("protein");
+    }
 
-if (savedProtein) {
-    document.getElementById("proteinDisplay").innerText =
-        savedProtein + " / 140 g";
-}  
+    let savedSavings = localStorage.getItem("savings");
+    if (savedSavings) {
+        document.getElementById("savingsDisplay").innerText =
+            "₱" + savedSavings + " / ₱10,000";
+    }
+
     let savedProtein = localStorage.getItem("protein");
+    if (savedProtein) {
+        document.getElementById("proteinDisplay").innerText =
+            savedProtein + " / 140 g";
+    }
 
-if (savedProtein) {
-    document.getElementById("proteinDisplay").innerText =
-        savedProtein + " / 140 g";
-}
-
-let savedWater = localStorage.getItem("water");
-
-if (savedWater) {
-    document.getElementById("waterDisplay").innerText =
-        savedWater + " / 3.5 L";
-}
+    let savedWater = localStorage.getItem("water");
+    if (savedWater) {
+        document.getElementById("waterDisplay").innerText =
+            savedWater + " / 3.5 L";
+    }
 
 };
 function resetStreak() {
