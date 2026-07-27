@@ -110,8 +110,26 @@
 </div>
 
 <div class="card">
-<h3>🥩 Protein</h3>
-<p>0 / 140 g</p>
+    <h3>🥩 Protein</h3>
+
+    <p id="proteinDisplay">0 / 140 g</p>
+
+    <input
+        id="proteinInput"
+        type="number"
+        placeholder="Enter grams">
+
+    <br><br>
+
+    <button onclick="addProtein()">
+        Add Protein
+    </button>
+
+    <br><br>
+
+    <button onclick="resetProtein()">
+        🔄 Reset Protein
+    </button>
 </div>
 
 <div class="card">
