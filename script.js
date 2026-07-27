@@ -107,13 +107,9 @@ function addSavings() {
     let add = document.getElementById("savingsInput").value;
     let savings = localStorage.getItem("savings") || 0;
 
-    alert("Current: " + savings + "\nAdd: " + add);
-
     savings = Number(savings) + Number(add);
 
     alert("New Total: " + savings);
-
-    localStorage.setItem("savings", savings);
 
     document.getElementById("savingsDisplay").innerText =
         "₱" + savings + " / ₱10,000";
@@ -122,6 +118,23 @@ function addSavings() {
 
     let toast = document.getElementById("toast");
     toast.innerText = "💰 Savings updated!";
+    toast.classList.add("show");
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+    }, 2000);
+}
+function resetSavings() {
+
+    localStorage.setItem("savings", 0);
+
+    document.getElementById("savingsDisplay").innerText =
+        "₱0 / ₱10,000";
+
+    document.getElementById("savingsInput").value = "";
+
+    let toast = document.getElementById("toast");
+    toast.innerText = "💸 Savings reset!";
     toast.classList.add("show");
 
     setTimeout(function () {
