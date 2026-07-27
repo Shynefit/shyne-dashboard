@@ -105,16 +105,13 @@ function resetStreak() {
 function addSavings() {
 
     let add = document.getElementById("savingsInput").value;
+    let savings = localStorage.getItem("savings") || 0;
 
-    alert("Amount: " + add);
+    alert("Current: " + savings + "\nAdd: " + add);
 
-    let savings = localStorage.getItem("savings");
+    savings = Number(savings) + Number(add);
 
-    if (!savings) {
-        savings = 0;
-    }
-
-    savings = parseInt(savings) + parseInt(add);
+    alert("New Total: " + savings);
 
     localStorage.setItem("savings", savings);
 
