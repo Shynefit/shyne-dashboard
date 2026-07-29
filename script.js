@@ -96,7 +96,15 @@ window.onload = function () {
         document.getElementById("waterDisplay").innerText =
             savedWater + " / 3.5 L";
     }
+let percent = (savedProtein / 140) * 100;
 
+if (percent > 100) {
+    percent = 100;
+}
+
+document.getElementById("proteinBar").style.width =
+    percent + "%";
+    
 };
 function resetStreak() {
     localStorage.setItem("streak", 0);
