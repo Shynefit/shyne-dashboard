@@ -160,7 +160,14 @@ function addProtein() {
 
     document.getElementById("proteinDisplay").innerText =
         protein + " / 140 g";
+let percent = (protein / 140) * 100;
 
+if (percent > 100) {
+    percent = 100;
+}
+
+document.getElementById("proteinBar").style.width =
+    percent + "%";
     document.getElementById("proteinInput").value = "";
 
     let toast = document.getElementById("toast");
