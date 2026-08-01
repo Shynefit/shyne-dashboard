@@ -20,6 +20,23 @@ document.getElementById("weightBar").style.width =
 
 document.getElementById("weightPercent").innerText =
     Math.round(percent) + "%";
+    
+let goal = Number(localStorage.getItem("goal")) || 0;
+
+if (goal > 0) {
+
+    let goalPercent = (weight / goal) * 100;
+
+    if (goalPercent > 100) {
+        goalPercent = 100;
+    }
+
+    document.getElementById("goalBar").style.width =
+        goalPercent + "%";
+
+    document.getElementById("goalPercent").innerText =
+        Math.round(goalPercent) + "%";
+}
 
 document.getElementById("weightInput").value = "";
 
