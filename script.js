@@ -230,6 +230,15 @@ function addWater() {
     document.getElementById("waterDisplay").innerText =
         water + " / 3.5 L";
 
+    let waterPercent = (water / 3.5) * 100;
+
+    if (waterPercent > 100) {
+        waterPercent = 100;
+    }
+
+    document.getElementById("waterBar").style.width =
+        waterPercent + "%";
+
     document.getElementById("waterInput").value = "";
 
     let toast = document.getElementById("toast");
@@ -240,13 +249,14 @@ function addWater() {
         toast.classList.remove("show");
     }, 2000);
 }
-
 function resetWater() {
 
     localStorage.setItem("water", 0);
 
     document.getElementById("waterDisplay").innerText =
         "0 / 3.5 L";
+
+    document.getElementById("waterBar").style.width = "0%";
 
     document.getElementById("waterInput").value = "";
 
@@ -258,3 +268,4 @@ function resetWater() {
         toast.classList.remove("show");
     }, 2000);
 }
+
