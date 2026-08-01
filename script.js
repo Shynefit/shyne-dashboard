@@ -9,7 +9,6 @@ document.getElementById("weightDisplay").innerText = weight + " kg";
 
 localStorage.setItem("weight", weight);
 
-// Progress Bar
 let percent = (weight / 100) * 100;
 
 if (percent > 100) {
