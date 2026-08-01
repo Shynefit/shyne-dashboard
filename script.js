@@ -38,6 +38,19 @@ function saveGoal() {
     document.getElementById("goalDisplay").innerText = goal + " kg";
     localStorage.setItem("goal", goal);
 
+let weight = Number(localStorage.getItem("weight")) || 0;
+
+let percent = (weight / goal) * 100;
+
+if (percent > 100) {
+    percent = 100;
+}
+
+document.getElementById("goalBar").style.width =
+    percent + "%";
+
+document.getElementById("goalPercent").innerText =
+    Math.round(percent) + "%";
     document.getElementById("goalInput").value = "";
 
     let toast = document.getElementById("toast");
