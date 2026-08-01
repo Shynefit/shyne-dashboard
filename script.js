@@ -104,62 +104,73 @@ function addWorkout() {
 
 window.onload = function () {
 
-    let savedWeight = localStorage.getItem("weight");
-    if (savedWeight) {
-        document.getElementById("weightDisplay").innerText =
-            savedWeight + " kg";
-    }
+    let savedWeight = Number(localStorage.getItem("weight")) || 0;
+    let savedGoal = Number(localStorage.getItem("goal")) || 0;
+    let savedStreak = Number(localStorage.getItem("streak")) || 0;
+    let savedSavings = Number(localStorage.getItem("savings")) || 0;
+    let savedProtein = Number(localStorage.getItem("protein")) || 0;
+    let savedWater = Number(localStorage.getItem("water")) || 0;
 
-    let savedGoal = localStorage.getItem("goal");
-    if (savedGoal) {
-        document.getElementById("goalDisplay").innerText =
-            savedGoal + " kg";
-    }
-
-    let savedStreak = localStorage.getItem("streak");
-    if (savedStreak) {
-        document.getElementById("streakDisplay").innerText =
-            savedStreak + " Days";
-    }
-
-    let savedSavings = localStorage.getItem("savings");
-    if (savedSavings) {
-        document.getElementById("savingsDisplay").innerText =
-            "₱" + savedSavings + " / ₱10,000";
-    }
-
-    let savedProtein = localStorage.getItem("protein");
-    if (savedProtein) {
-        document.getElementById("proteinDisplay").innerText =
-            savedProtein + " / 140 g";
-    }
-
-    let savedWater = localStorage.getItem("water");
-    if (savedWater) {
-        document.getElementById("waterDisplay").innerText =
-            savedWater + " / 3.5 L";
-    }
-let percent = (savedProtein / 140) * 100;
-
-if (percent > 100) {
-    percent = 100;
-}
-
-document.getElementById("proteinBar").style.width =
-    percent + "%";
     
-let waterPercent = (savedWater / 3.5) * 100;
+    document.getElementById("weightDisplay").innerText =
+        savedWeight + " kg";
 
-if (savedWater) {
-    let waterPercent = (savedWater / 3.5) * 100;
+    let weightPercent = (savedWeight / 100) * 100;
+    if (weightPercent > 100) weightPercent = 100;
 
-    if (waterPercent > 100) {
-        waterPercent = 100;
+    document.getElementById("weightBar").style.width =
+        weightPercent + "%";
+
+    document.getElementById("weightPercent").innerText =
+        Math.round(weightPercent) + "%";
+
+    
+    document.getElementById("goalDisplay").innerText =
+        savedGoal + " kg";
+
+    if (savedGoal > 0) {
+
+        let goalPercent = (savedWeight / savedGoal) * 100;
+
+        if (goalPercent > 100) goalPercent = 100;
+
+        document.getElementById("goalBar").style.width =
+            goalPercent + "%";
+
+        document.getElementById("goalPercent").innerText =
+            Math.round(goalPercent) + "%";
     }
+
+    
+    document.getElementById("streakDisplay").innerText =
+        savedStreak + " Days";
+
+    document.getElementById("savingsDisplay").innerText =
+        "₱" + savedSavings + " / ₱10,000";
+
+    document.getElementById("proteinDisplay").innerText =
+        savedProtein + " / 140 g";
+
+    let proteinPercent = (savedProtein / 140) * 100;
+    if (proteinPercent > 100) proteinPercent = 100;
+
+    document.getElementById("proteinBar").style.width =
+        proteinPercent + "%";
+
+    document.getElementById("proteinPercent").innerText =
+        Math.round(proteinPercent) + "%";
+
+    document.getElementById("waterDisplay").innerText =
+        savedWater + " / 3.5 L";
+
+    let waterPercent = (savedWater / 3.5) * 100;
+    if (waterPercent > 100) waterPercent = 100;
 
     document.getElementById("waterBar").style.width =
         waterPercent + "%";
-}
+
+    document.getElementById("waterPercent").innerText =
+        Math.round(waterPercent) + "%";
 };
 function resetStreak() {
     localStorage.setItem("streak", 0);
