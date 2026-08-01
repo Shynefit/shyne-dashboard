@@ -266,6 +266,10 @@ function addWater() {
 function resetWater() {
 
     localStorage.setItem("water", 0);
+    
+    document.getElementById("waterBar").style.width = "0%";
+
+    document.getElementById("waterPercent").innerText = "0%";
 
     document.getElementById("waterDisplay").innerText =
         "0 / 3.5 L";
