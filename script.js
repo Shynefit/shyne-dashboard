@@ -191,8 +191,6 @@ function addProtein() {
 
     localStorage.setItem("protein", protein);
 
-    document.getElementById("proteinDisplay").innerText =
-        protein + " / 140 g";
 let percent = (protein / 140) * 100;
 
 if (percent > 100) {
@@ -201,11 +199,11 @@ if (percent > 100) {
 
 document.getElementById("proteinBar").style.width =
     percent + "%";
-    document.getElementById("proteinInput").value = "";
 
-    let toast = document.getElementById("toast");
-    toast.innerText = "🥩 Protein updated!";
-    toast.classList.add("show");
+document.getElementById("proteinPercent").innerText =
+    Math.round(percent) + "%";
+    document.getElementById("proteinDisplay").innerText =
+        protein + " / 140 g";
 
     setTimeout(function () {
         toast.classList.remove("show");
