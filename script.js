@@ -213,6 +213,9 @@ document.getElementById("proteinPercent").innerText =
 function resetProtein() {
 
     localStorage.setItem("protein", 0);
+    document.getElementById("proteinBar").style.width = "0%";
+
+document.getElementById("proteinPercent").innerText = "0%";
 
     document.getElementById("proteinDisplay").innerText =
         "0 / 140 g";
