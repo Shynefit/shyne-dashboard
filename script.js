@@ -224,9 +224,7 @@ function resetProtein() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
-}
 function addWater() {
-
     let add = document.getElementById("waterInput").value;
     let water = localStorage.getItem("water") || 0;
 
