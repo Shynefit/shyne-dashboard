@@ -104,6 +104,20 @@ if (percent > 100) {
 
 document.getElementById("proteinBar").style.width =
     percent + "%";
+    let savedWater = localStorage.getItem("water");
+if (savedWater) {
+    document.getElementById("waterDisplay").innerText =
+        savedWater + " / 3.5 L";
+}
+
+let waterPercent = (savedWater / 3.5) * 100;
+
+if (waterPercent > 100) {
+    waterPercent = 100;
+}
+
+document.getElementById("waterBar").style.width =
+    waterPercent + "%";
     
 };
 function resetStreak() {
