@@ -3,20 +3,34 @@ function sayHello() {
 }
 
 function saveWeight() {
-    let weight = document.getElementById("weightInput").value;
+    let weight = Number(document.getElementById("weightInput").value);
 
-    document.getElementById("weightDisplay").innerText = weight + " kg";
-    localStorage.setItem("weight", weight);
+document.getElementById("weightDisplay").innerText = weight + " kg";
 
-    document.getElementById("weightInput").value = "";
+localStorage.setItem("weight", weight);
 
-    let toast = document.getElementById("toast");
-    toast.innerText = "✅ Weight saved!";
-    toast.classList.add("show");
+// Progress Bar
+let percent = (weight / 100) * 100;
 
-    setTimeout(function () {
-        toast.classList.remove("show");
-    }, 2000);
+if (percent > 100) {
+    percent = 100;
+}
+
+document.getElementById("weightBar").style.width =
+    percent + "%";
+
+document.getElementById("weightPercent").innerText =
+    Math.round(percent) + "%";
+
+document.getElementById("weightInput").value = "";
+
+let toast = document.getElementById("toast");
+toast.innerText = "✅ Weight saved!";
+toast.classList.add("show");
+
+setTimeout(function () {
+    toast.classList.remove("show");
+}, 2000);
 }
 
 function saveGoal() {
