@@ -112,8 +112,15 @@ if (savedWater) {
     
 let waterPercent = (savedWater / 3.5) * 100;
 
-if (waterPercent > 100) {
-    waterPercent = 100;
+if (savedWater) {
+    let waterPercent = (savedWater / 3.5) * 100;
+
+    if (waterPercent > 100) {
+        waterPercent = 100;
+    }
+
+    document.getElementById("waterBar").style.width =
+        waterPercent + "%";
 }
 
 document.getElementById("waterBar").style.width =
