@@ -249,6 +249,9 @@ function addWater() {
 
     document.getElementById("waterBar").style.width =
         waterPercent + "%";
+    
+    document.getElementById("waterPercent").innerText =
+    Math.round(waterPercent) + "%";
 
     document.getElementById("waterInput").value = "";
 
