@@ -105,11 +105,6 @@ if (percent > 100) {
 document.getElementById("proteinBar").style.width =
     percent + "%";
     
-    let savedWater = localStorage.getItem("water");
-if (savedWater) {
-    document.getElementById("waterDisplay").innerText =
-        savedWater + " / 3.5 L";
-    
 let waterPercent = (savedWater / 3.5) * 100;
 
 if (savedWater) {
@@ -122,10 +117,6 @@ if (savedWater) {
     document.getElementById("waterBar").style.width =
         waterPercent + "%";
 }
-
-document.getElementById("waterBar").style.width =
-    waterPercent + "%";
-}    
 };
 function resetStreak() {
     localStorage.setItem("streak", 0);
@@ -224,6 +215,7 @@ function resetProtein() {
     setTimeout(function () {
         toast.classList.remove("show");
     }, 2000);
+}
 function addWater() {
     let add = document.getElementById("waterInput").value;
     let water = localStorage.getItem("water") || 0;
